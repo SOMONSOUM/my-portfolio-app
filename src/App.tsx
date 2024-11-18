@@ -1,10 +1,38 @@
 import { Github, Mail, MapPin, Phone } from "lucide-react";
 import "./App.css";
 import { Card, CardContent } from "./components/ui/card";
+import { Helmet } from "react-helmet-async";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
+      <Helmet>
+        <title>Soum Somon - Senior Software Developer</title>
+        <meta
+          name="description"
+          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, and scalable application development."
+        />
+        <meta
+          name="keywords"
+          content="Soum Somon, Software Developer, ReactJS, NextJS, TypeScript, Tailwind CSS"
+        />
+        <meta name="author" content="Soum Somon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          property="og:title"
+          content="Soum Somon - Senior Software Developer"
+        />
+        <meta
+          property="og:description"
+          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, and scalable application development."
+        />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/28615575?s=400&u=321d6388a81f9b85d2c25305a5e806feb09bfdb7&v=4"
+        />
+        <meta property="og:url" content="https://somonsoum.vercel.app" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div
         className="min-h-screen bg-[#f5f8ff] p-4 md:p-8 flex items-center justify-center"
         style={{
