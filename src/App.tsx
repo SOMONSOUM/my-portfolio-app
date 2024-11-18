@@ -1,20 +1,51 @@
-import { Github, Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  ArrowUp,
+  Briefcase,
+  Github,
+  Mail,
+  MapPin,
+  Phone,
+  User,
+} from "lucide-react";
 import "./App.css";
 import { Card, CardContent } from "./components/ui/card";
 import { Helmet } from "react-helmet-async";
 
 const App: React.FC = () => {
+  const [showFloatButton, setShowFloatButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowFloatButton(true);
+      } else {
+        setShowFloatButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleFloatButtonClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <Helmet>
         <title>Soum Somon - Senior Software Developer</title>
         <meta
           name="description"
-          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, and scalable application development."
+          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, NestJS , Spring Boot and scalable application development."
         />
         <meta
           name="keywords"
-          content="Soum Somon, Software Developer, ReactJS, NextJS, TypeScript, Tailwind CSS"
+          content="Soum Somon, Software Developer, NestJS, Spring Boot, ReactJS, NextJS, TypeScript, Java, JavaScript, Tailwind CSS"
         />
         <meta name="author" content="Soum Somon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +55,7 @@ const App: React.FC = () => {
         />
         <meta
           property="og:description"
-          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, and scalable application development."
+          content="Soum Somon is a Senior Software Developer specializing in ReactJS, NextJS, NestJS , Spring Boot and scalable application development."
         />
         <meta
           property="og:image"
@@ -56,17 +87,17 @@ const App: React.FC = () => {
 
                   {/* Contact Section */}
                   <div>
-                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2">
+                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2 rounded">
                       CONTACT ME
                     </div>
                     <div className="space-y-2 mt-3 text-sm">
                       <div className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-[#1e56a0]" />
-                        <span>(+855) 99 965 943</span>
+                        <span>(+855) 99 9** **3</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail className="h-4 w-4 text-[#1e56a0]" />
-                        <span>somon.soum@gmail.com</span>
+                        <span>somon.soum9@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <MapPin className="h-4 w-4 text-[#1e56a0]" />
@@ -74,14 +105,24 @@ const App: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         <Github className="h-4 w-4 text-[#1e56a0]" />
-                        <span>github.com/somonsoum</span>
+                        <span
+                          className="cursor-pointer hover:underline text-[#1e56a0]"
+                          onClick={() =>
+                            window.open(
+                              "https://github.com/somonsoum",
+                              "_blank"
+                            )
+                          }
+                        >
+                          github.com/somonsoum
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   {/* Education Section */}
                   <div>
-                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2">
+                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2 rounded">
                       EDUCATION
                     </div>
                     <div className="space-y-4 mt-3">
@@ -105,14 +146,14 @@ const App: React.FC = () => {
                           Hun Sen Kampong Ro High School /{" "}
                           <span className="text-[#1e56a0]">Svay Rieng</span>
                         </p>
-                        <p className="text-sm text-gray-600">2022 - 2023</p>
+                        <p className="text-sm text-gray-600">2010 - 2013</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Skills Section */}
                   <div>
-                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2">
+                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2 rounded">
                       SKILLS
                     </div>
                     <div className="mt-3 space-y-2">
@@ -122,7 +163,7 @@ const App: React.FC = () => {
                       </div>
                       <div className="flex gap-2">
                         <span className="text-[#1e56a0] mt-1">•</span>
-                        <span>NextJS, Spring Boot</span>
+                        <span>NestJS, Spring Boot</span>
                       </div>
                       <div className="flex gap-2">
                         <span className="text-[#1e56a0] mt-1">•</span>
@@ -138,7 +179,39 @@ const App: React.FC = () => {
                       </div>
                       <div className="flex gap-2">
                         <span className="text-[#1e56a0] mt-1">•</span>
-                        <span>Docker, Capirover, Deploy</span>
+                        <span>Docker, Caprover, Dokploy</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="bg-[#1e56a0] text-white font-semibold text-center py-2 rounded">
+                      HOBBIES
+                    </div>
+                    <div className="mt-3 space-y-2">
+                      <div className="flex gap-2">
+                        <span className="text-[#1e56a0] mt-1">•</span>
+                        <span>
+                          Exploring topics such as current news, Khmer history,
+                          and business literature.
+                        </span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-[#1e56a0] mt-1">•</span>
+                        <span>Enjoying audiobooks and classical music.</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-[#1e56a0] mt-1">•</span>
+                        <span>
+                          Passionate about coding, blockchain, cryptocurrency,
+                          NFTs, IoT, and electronics.
+                        </span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-[#1e56a0] mt-1">•</span>
+                        <span>
+                          Enthusiastic about teaching mathematics, physics,
+                          electronics circuit design, and Arduino programming.
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -160,22 +233,23 @@ const App: React.FC = () => {
 
                   {/* Introduction Section */}
                   <section>
-                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b border-[#1e56a0]">
+                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b-2 border-[#1e56a0]">
                       INTRODUCTION
                     </h2>
                     <p className="text-gray-600">
-                      A Senior Software Developer experienced in NextJS, NextJS,
-                      ReactJS, and TypeScript, specializing in building scalable
-                      applications, optimizing performance, and ensuring code
-                      quality. Skilled in both backend and frontend development,
-                      with a focus on clean, maintainable code.
+                      Senior Software Developer with strong expertise in NestJS,
+                      NextJS, ReactJS, and TypeScript. Focused on building
+                      scalable applications, improving performance, and
+                      maintaining high code quality. Skilled in both backend and
+                      frontend development, with a passion for writing clean,
+                      maintainable, and reliable code.
                     </p>
                   </section>
 
                   {/* Work Experience Section */}
                   <section>
-                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b border-[#1e56a0]">
-                      WORK EXPERIENCE
+                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b-2 border-[#1e56a0]">
+                      WORK EXPERIENCES
                     </h2>
                     <div>
                       <div className="flex justify-between mb-1">
@@ -264,7 +338,7 @@ const App: React.FC = () => {
                     </div>
                     <div className="pt-4">
                       <div className="flex justify-between mb-1">
-                        <span>Physics Content Lead</span>
+                        <span>Physics Content Creator</span>
                         <span className="text-gray-600">
                           Nov 2019 - May 2022
                         </span>
@@ -355,15 +429,34 @@ const App: React.FC = () => {
 
                   {/* References Section */}
                   <section>
-                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b border-[#1e56a0]">
-                      REFERENCES
+                    <h2 className="text-[#1e56a0] font-bold mb-4 pb-1 border-b-2 border-[#1e56a0]">
+                      REFERENCE
                     </h2>
                     <div>
-                      <h3 className="text-[#1e56a0] font-medium">
-                        Mr. Sak Sothea
-                      </h3>
-                      <p className="text-gray-600">Product Owner at Godital</p>
-                      <p className="text-gray-600">Phone: 085 2* ** 00</p>
+                      <div className="flex items-center gap-2">
+                        <User className="h-4 w-4 text-[#1e56a0]" />
+                        <span className="text-[#1e56a0] font-medium">
+                          Mr. Sak Sothea
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Briefcase className="h-4 w-4 text-[#1e56a0]" />
+                        <span className="text-gray-600">
+                          Product Owner at Godital
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-[#1e56a0]" />
+                        <span className="text-gray-600">
+                          Phone: 085 2* ** 00
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="h-4 w-4 text-[#1e56a0]" />
+                        <span className="text-gray-600">
+                          sotheasak.st@gmail.com
+                        </span>
+                      </div>
                     </div>
                   </section>
                 </div>
@@ -372,6 +465,14 @@ const App: React.FC = () => {
           </CardContent>
         </Card>
       </div>
+      {showFloatButton && (
+        <button
+          className="fixed bottom-4 right-4 bg-[#1e56a0] text-white p-2 rounded-full transition duration-400 ease-in-out animate-bounce"
+          onClick={handleFloatButtonClick}
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
     </>
   );
 };
